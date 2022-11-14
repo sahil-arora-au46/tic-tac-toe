@@ -8,11 +8,7 @@ let winMat = [
   [5, 6, 7],
   [8, 9, -1],
 ];
-// const reset = [
-//   [2, 3, 4],
-//   [5, 6, 7],
-//   [8, 9, -1],
-// ];
+
 let funcArr = [];
 for (let i = 0; i < 9; i++) {
   let ani = `ani${i}`;
@@ -21,15 +17,16 @@ for (let i = 0; i < 9; i++) {
   };
   funcArr.push(ani);
 }
+let boxArr = document.getElementsByClassName("inBox")
 for (let i = 0; i < 9; i++) {
-  let box = document.getElementById(`box${i + 1}`);
-  box.addEventListener("click", funcArr[i], { once: true });
+  // let box = document.getElementById(`box${i + 1}`);
+  boxArr[i].addEventListener("click", funcArr[i], { once: true });
 }
-var vert = 'Restart'.split("").join("<br/>")
-let btn = document.getElementById("vert")
-btn.innerHTML = vert
-document.getElementsByClassName('score')[0].innerHTML = winningCountP1;
-document.getElementsByClassName('score')[1].innerHTML = winningCountP2;
+// var vert = 'Restart'.split("").join("<br/>")
+// let btn = document.getElementById("vert")
+// btn.innerHTML = vert
+// document.getElementsByClassName('score')[0].innerHTML = winningCountP1;
+// document.getElementsByClassName('score')[1].innerHTML = winningCountP2;
 
 //----------------------- function declaration-------------------------------------- 
 function win() {
@@ -77,10 +74,10 @@ function win() {
       flag = false;
       setTimeout(removeO, 6000);
       setTimeout(addX, 4300);
-      setTimeout(addBannaer, 9000, "X wins!");
+      // setTimeout(addBannaer, 9000, "X wins!");
       setTimeout(gameReset, 10000);
       setTimeout(removeX, 11000);
-      setTimeout(removeBannaer, 11000);
+      // setTimeout(removeBannaer, 11000);
     }
     if (playerWon == 0) {
       winningCountP2++;
@@ -93,7 +90,7 @@ function win() {
       flag = false;
       setTimeout(removeX, 6000);
       setTimeout(addO, 5000);
-      setTimeout(addBannaer, 9000, "O wins!");
+      // setTimeout(addBannaer, 9000, "O wins!");
       setTimeout(gameReset, 12000);
       setTimeout(removeO, 12000);
       setTimeout(removeBannaer, 12000);
@@ -113,14 +110,14 @@ function win() {
     setTimeout(gameReset, 6000);
     setTimeout(removeO, 12000);
     setTimeout(removeX, 12000);
-    setTimeout(removeBannaer, 12000);
+    // setTimeout(removeBannaer, 12000);
   }
-  setTimeout(leaderBoard, 7000);
+  // setTimeout(leaderBoard, 7000);
 }
- function leaderBoard(){
-  document.getElementsByClassName('score')[0].innerHTML = winningCountP1;
-document.getElementsByClassName('score')[1].innerHTML = winningCountP2;
-}
+//  function leaderBoard(){
+//   document.getElementsByClassName('score')[0].innerHTML = winningCountP1;
+// document.getElementsByClassName('score')[1].innerHTML = winningCountP2;
+// }
 function removeO() {
   let ani = document.getElementsByClassName("fa-o");
   for (let i = 0; i < ani.length; i++) {
@@ -145,20 +142,20 @@ function addO() {
     ani[i].style = `animation: o${i + 1} 4s   1  forwards;`;
   }
 }
-function removeBannaer() {
-  let ele = document.getElementById("winner");
-  ele.style = "none";
-}
-function addBannaer(winner) {
-  let ele = document.getElementById("winner");
-  ele.textContent = winner;
-  ele.style = "animation: bounce2 2s ease-in    forwards;";
-}
+// function removeBannaer() {
+//   let ele = document.getElementById("winner");
+//   ele.style = "none";
+// }
+// function addBannaer(winner) {
+//   let ele = document.getElementById("winner");
+//   ele.textContent = winner;
+//   ele.style = "animation: bounce2 2s ease-in    forwards;";
+// }
 function gameReset() {
   for (let i = 0; i < 9; i++) {
-    let box = document.getElementById(`box${i + 1}`);
-    box.removeEventListener("click", funcArr[i], { once: true });
-    box.addEventListener("click", funcArr[i], { once: true });
+    // let box = document.getElementById(`box${i + 1}`);
+    boxArr[i].removeEventListener("click", funcArr[i], { once: true });
+    boxArr[i].addEventListener("click", funcArr[i], { once: true });
   }
 }
 function animation(i) {
@@ -217,3 +214,6 @@ function animation(i) {
     }
   }
 }
+// function playerName(){
+  
+// }
