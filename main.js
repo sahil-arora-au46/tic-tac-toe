@@ -93,7 +93,7 @@ function win() {
       // setTimeout(addBannaer, 9000, "O wins!");
       setTimeout(gameReset, 12000);
       setTimeout(removeO, 12000);
-      setTimeout(removeBannaer, 12000);
+      // setTimeout(removeBannaer, 12000);
     }
   }
   if (count == 9 && flag == false) {
@@ -106,7 +106,7 @@ function win() {
       [8, 9, -1],
     ];
     
-    setTimeout(addBannaer, 4500, "Draw!");
+    // setTimeout(addBannaer, 4500, "Draw!");
     setTimeout(gameReset, 6000);
     setTimeout(removeO, 12000);
     setTimeout(removeX, 12000);
